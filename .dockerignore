@@ -1,0 +1,10 @@
+.git
+.gitignore
+.env
+.env.*
+README.md
+evidence/
+terraform/
+*.pem
+*.zip
+.DS_Store

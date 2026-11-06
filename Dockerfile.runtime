@@ -1,0 +1,16 @@
+FROM alpine:3.22 AS runtime
+RUN apk add --no-cache ca-certificates curl \
+    && addgroup -S -g 10001 appgroup \
+    && adduser -S -D -H -u 10001 -G appgroup appuser
+
+WORKDIR /app
+ENV HOME=/tmp GOMODCACHE=/tmp/gomodcache GOPATH=/tmp/gopath
+COPY muchtodo /app/muchtodo
+
+USER 10001:10001
+EXPOSE 8080
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+  CMD curl --fail --silent http://localhost:8080/health || exit 1
+
+ENTRYPOINT ["/app/muchtodo"]

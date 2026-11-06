@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+terraform/terraform.tfvars
+terraform/.terraform/
+**/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+*.tfplan
+*.pem
+.DS_Store
