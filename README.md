@@ -293,3 +293,5 @@ terraform -chdir=terraform destroy
 ```
 
 Do not run destroy while the live backend is needed for assessment evidence or review. Also disable or delete the temporary AWS access key after the work is complete. Keep the private SSH key local and never commit it.
+
+The AWS infrastructure was deployed, verified, and then torn down on 6 November 2026 to stop ongoing charges. The `evidence/` folder holds screenshots of the working deployment, including the healthy target group (08b) and the backend responding through the load balancer (14). It can be recreated at any time with the Terraform steps above.
